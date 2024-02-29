@@ -2,7 +2,7 @@ import { api } from "../api";
 import { getCityByNameService } from "@services/getCityByNameService";
 import { mockCityAPIResponse } from "@__tests__/mocks/mockCityAPIResopnse";
 
-describe("API: getCityByNameService", () => {
+describe("Service: getCityByNameService", () => {
   it("should return city details", async () => {
     // spyOn -> fica observando as requests que serão feitas pra API
     // quando acontecer uma request do tipo GET, será interceptada
