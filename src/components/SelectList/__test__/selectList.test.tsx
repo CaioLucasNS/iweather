@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react-native";
+import { fireEvent, render, screen } from "@testing-library/react-native";
 import { SelectList } from "@components/SelectList";
 
 describe("Component: SelectList", () => {
@@ -8,11 +8,13 @@ describe("Component: SelectList", () => {
       { id: "2", name: "Campo Grande", latitude: 789, longitude: 987 },
     ];
 
-    render(<SelectList data={data} onChange={() => {}} onPress={() => {}} />);
+    const onPress = jest.fn();
 
-    // regex pega a string "Campo" no inicio ou no final da busca e i = remove o case sensitivy
-    // const selectedCity = screen.getByText(/campo/i);
-    const selectedCity = screen.getByText("campo", { exact: false });
-    console.log("selectedCity: ", selectedCity);
+    render(<SelectList data={data} onChange={() => {}} onPress={onPress} />);
+
+    const selectedCity = screen.getByText(/campo/i);
+    fireEvent.press(selectedCity);
+
+    expect(onPress).toHaveBeenCalledTimes(1);
   });
 });
