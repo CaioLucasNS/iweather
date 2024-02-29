@@ -10,7 +10,9 @@ describe("Component: SelectList", () => {
 
     render(<SelectList data={data} onChange={() => {}} onPress={() => {}} />);
 
-    const selectedCity = screen.getByText("Campo Grande");
+    // regex pega a string "Campo" no inicio ou no final da busca e i = remove o case sensitivy
+    // const selectedCity = screen.getByText(/campo/i);
+    const selectedCity = screen.getByText("campo", { exact: false });
     console.log("selectedCity: ", selectedCity);
   });
 });
