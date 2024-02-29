@@ -17,4 +17,12 @@ describe("Component: SelectList", () => {
 
     expect(onPress).toHaveBeenCalledWith(data[1]);
   });
+
+  it("not should be show options when data props is empty.", () => {
+    render(<SelectList data={[]} onChange={() => {}} onPress={() => {}} />);
+
+    const options = screen.getByTestId("options");
+    // .children -> verificando options tem algum children, irá retornar []
+    expect(options.children).toHaveLength(0);
+  });
 });
