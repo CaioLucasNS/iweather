@@ -8,9 +8,11 @@ describe("Component: Input", () => {
     const activityIndicator = screen.queryByTestId("activity-indicator");
     expect(activityIndicator).toBeNull();
   });
-});
 
-/**
- * GET -> retorna um erro caso não encontre
- * QUERY -> se não encontra o elemento, retorna null
- */
+  it("should be render with activity indicator if isLoading prop is true.", () => {
+    render(<Input isLoading />);
+
+    const activityIndicator = screen.getByTestId("activity-indicator");
+    expect(activityIndicator).toBeTruthy();
+  });
+});
