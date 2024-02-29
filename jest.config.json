@@ -4,7 +4,11 @@
   "transformIgnorePatterns": [
     "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)"
   ],
-  "testPathIgnorePatterns": ["__tests__/mocks", "__tests__/utils"],
+  "testPathIgnorePatterns": [
+    "./__tests__/mocks",
+    "./__tests__/utils",
+    "./__tests__/coverage"
+  ],
   "setupFiles": ["./__tests__/mocks/libs/async-storage.js"],
   "transform": {
     "^.+\\.jsx?$": "babel-jest",
@@ -14,6 +18,8 @@
   "coveragePathIgnorePatterns": [
     "./src/@types",
     "./src/styles",
-    "./src/libs/daysjs"
-  ]
+    "./src/libs/daysjs",
+    "./__tests__/coverage"
+  ],
+  "coverageDirectory": "./__tests__/coverage"
 }
