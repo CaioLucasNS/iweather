@@ -10,9 +10,17 @@ describe("Context: CityContext", () => {
     // waitFor = aguarda a solicitação assincrona que tem dentro do context
     // act = lidar com a atualização de estado que acontece dentro do context
     await waitFor(() =>
-      act(() => {
-        console.log("result: ", result.current);
-      })
+      act(() =>
+        result.current.handleChanceCity({
+          id: "1",
+          name: "São Paulo",
+          latitude: 123,
+          longitude: 456,
+        })
+      )
     );
+
+    // verificar se dentro da cidade é São Paulo
+    expect(result.current.city?.name).toBe("São Paulo");
   });
 });
